@@ -16,6 +16,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "assets/theme";
 // import Presentation from "layouts/pages/presentation";
 import Cowrking from "pages/LandingPages/Coworking/index.js";
+import "./FloatingButton.css";
 
 // import routes from "routes";
 
@@ -43,12 +44,24 @@ export default function App() {
     });
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Routes>
-        <Route path="/" element={<Cowrking />} />
-        <Route path="*" element={<Navigate to="/" />} />
-      </Routes>
-    </ThemeProvider>
+    <div>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          <Route path="/" element={<Cowrking />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </ThemeProvider>
+      <a
+        href="https://calendly.com/hellapretty/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-reserve-btn"
+      >
+        Reserve
+        <br />
+        Now
+      </a>
+    </div>
   );
 }
