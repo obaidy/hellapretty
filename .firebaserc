@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "hellapretty-8fd1d"
-  }
+    "default": "hellapretty-8fd1d",
+    "production": "hellapretty-v2"
+  },
+  "targets": {},
+  "etags": {}
 }

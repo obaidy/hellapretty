@@ -14,6 +14,7 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 
 import microneedling1 from "./microneedling1.png";
+import microneedling from "./microneedling.png";
 import Lashes from "./lashes.png";
 import plet from "./plet.png";
 // import StoryViewer from "./StoryViewer";
@@ -44,7 +45,7 @@ function Places() {
           <Grid item xs={12} md={6} lg={4}>
             <MKBox mt={3}>
               <SimpleBlogCard
-                image={microneedling1}
+                image={microneedling}
                 title="Micro-Needling"
                 description="Mikrojehličková mezoterapiie, známá také jako microneedling je inovativní metoda navržena tak, aby vaší pleti poskytla optimální zlepšení struktury a celkového stavu obličeje, ale také se může využít na krk, dekolt či ruce.."
                 action={{

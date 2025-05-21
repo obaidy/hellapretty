@@ -17,7 +17,7 @@ import theme from "assets/theme";
 // import Presentation from "layouts/pages/presentation";
 import Cowrking from "pages/LandingPages/Coworking/index.js";
 
-import routes from "routes";
+// import routes from "routes";
 
 export default function App() {
   const { pathname } = useLocation();
@@ -28,6 +28,7 @@ export default function App() {
     document.scrollingElement.scrollTop = 0;
   }, [pathname]);
 
+  // eslint-disable-next-line no-unused-vars
   const getRoutes = (allRoutes) =>
     allRoutes.map((route) => {
       if (route.collapse) {
@@ -45,7 +46,6 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Routes>
-        {getRoutes(routes)}
         <Route path="/" element={<Cowrking />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
