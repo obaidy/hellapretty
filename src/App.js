@@ -17,6 +17,8 @@ import theme from "assets/theme";
 // import Presentation from "layouts/pages/presentation";
 import Cowrking from "pages/LandingPages/Coworking/index.js";
 import "./FloatingButton.css";
+import CoworkingPage from "pages/LandingPages/Coworking";
+import GDPRConsentDialog from "./pages/LandingPages/Coworking/components/GDPRConsentDialog";
 
 // import routes from "routes";
 
@@ -49,8 +51,10 @@ export default function App() {
         <CssBaseline />
         <Routes>
           <Route path="/" element={<Cowrking />} />
+          <Route path="/" element={<CoworkingPage />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+        <GDPRConsentDialog />
       </ThemeProvider>
       <a
         href="https://calendly.com/hellapretty/"

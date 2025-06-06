@@ -7,12 +7,12 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
-import Stack from "@mui/material/Stack";
+// import Stack from "@mui/material/Stack";
 
 // Material Kit 2 PRO React components
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
-import MKButton from "components/MKButton";
+// import MKButton from "components/MKButton";
 
 // Material Kit 2 PRO React examples
 // import DefaultNavbar from "examples/Navbars/DefaultNavbar";
@@ -94,16 +94,16 @@ function Coworking() {
             >
               {/* Profesionální služby v Prostějově. */}
             </MKTypography>
-            <Stack direction="row" spacing={1} mt={6} mb={3}>
+            {/* <Stack direction="row" spacing={1} mt={6} mb={3}>
               <a href="https://calendly.com/hellapretty/" target="_blank" rel="noopener noreferrer">
                 <MKButton variant="gradient" color="info">
                   Rezervace
                 </MKButton>
-              </a>
-              {/* <MKButton variant="text" color="white">
+              </a> */}
+            {/* <MKButton variant="text" color="white">
                 read more
               </MKButton> */}
-            </Stack>
+            {/* </Stack> */}
           </Grid>
         </Container>
       </MKBox>
