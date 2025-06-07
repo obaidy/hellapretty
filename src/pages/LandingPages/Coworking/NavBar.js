@@ -1,34 +1,89 @@
-import React from "react";
-import { AppBar, Toolbar, Typography, Button, Stack } from "@mui/material";
-import { Link } from "react-scroll";
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  Stack,
+  IconButton,
+  Drawer,
+  Box,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
-  return (
-    <AppBar
-      position="sticky"
-      sx={{
-        backgroundColor: "#E7D9D7",
-        boxShadow: "none", // Optional: removes the shadow for a cleaner look
-      }}
-    >
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        {/* Left side - Logo */}
-        <Typography variant="h6" sx={{ fontWeight: "bold" }}>
-          Hella Pretty
-        </Typography>
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-        {/* Right side - Navigation links */}
-        <Stack direction="row" spacing={3}>
-          <Link to="services" smooth={true} duration={500}>
-            <Button sx={{ color: "#000" }}>Služby</Button>
-          </Link>
-          <Link to="prices" smooth={true} duration={500}>
-            <Button sx={{ color: "#000" }}>Ceny</Button>
-          </Link>
-          <Link to="about-us" smooth={true} duration={500}>
-            <Button sx={{ color: "#000" }}>O nás</Button>
-          </Link>
-        </Stack>
+  const toggleDrawer = () => setDrawerOpen((prev) => !prev);
+
+  const navLinks = (
+    <>
+      <ScrollLink to="services" smooth duration={500}>
+        <Button color="inherit">Služby</Button>
+      </ScrollLink>
+      <ScrollLink to="prices" smooth duration={500}>
+        <Button color="inherit">Cenik</Button>
+      </ScrollLink>
+      <Button component={RouterLink} to="/pages/company/about-us" color="inherit">
+        O nás
+      </Button>
+    </>
+  );
+
+  const reservationButton = (
+    <Button
+      variant="contained"
+      color="info"
+      href="https://calendly.com/hellapretty/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Rezervace
+    </Button>
+  );
+
+  return (
+    <AppBar position="sticky" sx={{ backgroundColor: "#F2F2F2", boxShadow: "none" }}>
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        <ScrollLink
+          to="home"
+          smooth
+          duration={500}
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <Typography variant="h6" sx={{ fontWeight: "bold", cursor: "pointer" }}>
+            Hella Pretty
+          </Typography>
+        </ScrollLink>
+
+        {isMobile ? (
+          <>
+            <IconButton edge="end" color="inherit" onClick={toggleDrawer}>
+              <MenuIcon />
+            </IconButton>
+            <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
+              <Box sx={{ width: 250, p: 2 }} role="presentation" onClick={toggleDrawer}>
+                <Stack spacing={2}>
+                  {navLinks}
+                  {reservationButton}
+                </Stack>
+              </Box>
+            </Drawer>
+          </>
+        ) : (
+          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+            <Stack direction="row" spacing={3}>
+              {navLinks}
+            </Stack>
+            {reservationButton}
+          </Box>
+        )}
       </Toolbar>
     </AppBar>
   );

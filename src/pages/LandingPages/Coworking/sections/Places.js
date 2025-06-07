@@ -73,7 +73,7 @@ const services = [
 
 function Places() {
   return (
-    <MKBox component="section" py={3}>
+    <MKBox id="services" component="section" py={3}>
       <Container>
         {/* <StoryViewer /> */}
         <Grid

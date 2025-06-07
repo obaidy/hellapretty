@@ -50,6 +50,7 @@ function Coworking() {
         sticky
       /> */}
       <MKBox
+        id="home"
         minHeight="75vh"
         width="100%"
         sx={{

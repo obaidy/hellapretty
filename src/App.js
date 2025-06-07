@@ -19,6 +19,7 @@ import Cowrking from "pages/LandingPages/Coworking/index.js";
 import "./FloatingButton.css";
 import CoworkingPage from "pages/LandingPages/Coworking";
 import GDPRConsentDialog from "./pages/LandingPages/Coworking/components/GDPRConsentDialog";
+import AboutUsPage from "layouts/pages/company/about-us";
 
 // import routes from "routes";
 
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="/" element={<Cowrking />} />
           <Route path="/" element={<CoworkingPage />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/pages/company/about-us" element={<AboutUsPage />} />
         </Routes>
         <GDPRConsentDialog />
       </ThemeProvider>

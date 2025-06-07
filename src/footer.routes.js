@@ -13,7 +13,7 @@ export default {
   brand: {
     name: "Hella Pretty",
     image: hplogo,
-    route: "/",
+    route: "/#home",
   },
   socials: [
     {
@@ -24,45 +24,28 @@ export default {
   menus: [
     {
       name: "Rezervace",
-      items: [
-        { name: "Rezervace Zde", href: "https://www.creative-tim.com/presentation" },
-        // { name: "freebies", href: "https://www.creative-tim.com/templates/free" },
-        // { name: "premium tools", href: "https://www.creative-tim.com/templates/premium" },
-        // { name: "blog", href: "https://www.creative-tim.com/blog" },
-      ],
+      items: [{ name: "Rezervace Zde", href: "https://calendly.com/hellapretty/" }],
     },
     {
       name: "Cenik",
-      items: [
-        { name: "naš ceník", href: "https://iradesign.io/" },
-        // { name: "bits & snippets", href: "https://www.creative-tim.com/bits" },
-        // { name: "affiliate program", href: "https://www.creative-tim.com/affiliates/new" },
-      ],
+      items: [{ name: "naš ceník", route: "/#prices" }],
     },
     {
       name: "Služby",
-      items: [
-        { name: "naše služby", href: "https://www.creative-tim.com/contact-us" },
-        // { name: "knowledge center", href: "https://www.creative-tim.com/knowledge-center" },
-        // { name: "custom development", href: "https://services.creative-tim.com/" },
-        // { name: "sponsorships", href: "https://www.creative-tim.com/sponsorships" },
-      ],
+      items: [{ name: "naše služby", route: "/#services" }],
     },
-    // {
-    //   name: "legal",
-    //   items: [
-    //     { name: "terms & conditions", href: "https://www.creative-tim.com/terms" },
-    //     { name: "privacy policy", href: "https://www.creative-tim.com/privacy" },
-    //     { name: "licenses (EULA)", href: "https://www.creative-tim.com/license" },
-    //   ],
-    // },
+    {
+      name: "O nás",
+      items: [{ name: "O nás", route: "/pages/company/about-us" }],
+    },
   ],
+
   copyright: (
     <MKTypography variant="button" fontWeight="regular">
       All rights reserved. Copyright &copy; {date} Hella Pretty by{" "}
       <MKTypography
         // component="a"
-        // href="https://www.creative-tim.com"
+        // href="https://"
         // target="_blank"
         // rel="noreferrer"
         variant="button"
