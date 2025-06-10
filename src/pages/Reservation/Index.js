@@ -84,7 +84,11 @@ function Reservation() {
       return;
     }
 
-    setSnackbar({ open: true, severity: "success", message: "Rezervace uložena." });
+    setSnackbar({
+      open: true,
+      severity: "success",
+      message: "Rezervace uložena.Budeme Vás za nedlouho kontaktovat",
+    });
     setForm({ name: "", phone: "", email: "", service: "", date: new Date() });
   };
 
