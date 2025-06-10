@@ -67,6 +67,7 @@ function Reservation() {
     const reservations = JSON.parse(localStorage.getItem("reservations") || "[]");
     reservations.push(form);
     localStorage.setItem("reservations", JSON.stringify(reservations));
+    // eslint-disable-next-line no-unused-vars
     const { data, error } = await supabase.from("reservations").insert([form]).select();
 
     if (error) {
@@ -77,7 +78,7 @@ function Reservation() {
 
     // eslint-disable-next-line no-undef
     const { error: emailError } = await supabase.functions.invoke("send-reservation-email", {
-      body: data[0],
+      body: form,
     });
     if (emailError) {
       console.error(emailError);

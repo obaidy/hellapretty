@@ -29,18 +29,24 @@ export default {
   },
 
   primary: {
-    main: "#e91e63",
-    focus: "#e91e63",
+    main: "#D99F59",
+    focus: "#D99F59",
+    // main: "#e91e63",
+    // focus: "#e91e63",
   },
 
   secondary: {
-    main: "#7b809a",
-    focus: "#8f93a9",
+    main: "#BFAA8F",
+    focus: "#BFAA8F",
+    // main: "#7b809a",
+    // focus: "#8f93a9",
   },
 
   info: {
-    main: "#1A73E8",
-    focus: "#1662C4",
+    main: "#8C6B4F",
+    focus: "#8C6B4F",
+    // main: "#1A73E8",
+    // focus: "#1662C4",
   },
 
   success: {
@@ -59,13 +65,17 @@ export default {
   },
 
   light: {
-    main: "#f0f2f5",
-    focus: "#f0f2f5",
+    main: "#F2E6D8",
+    focus: "#F2E6D8",
+    // main: "#f0f2f5",
+    // focus: "#f0f2f5",
   },
 
   dark: {
-    main: "#344767",
-    focus: "#2c3c58",
+    main: "#260101",
+    focus: "#260101",
+    // main: "#344767",
+    // focus: "#2c3c58",
   },
 
   grey: {
@@ -82,18 +92,24 @@ export default {
 
   gradients: {
     primary: {
-      main: "#EC407A",
-      state: "#D81B60",
+      main: "#D99F59",
+      state: "#BFAA8F",
+      // main: "#EC407A",
+      // state: "#D81B60",
     },
 
     secondary: {
-      main: "#747b8a",
-      state: "#495361",
+      main: "#BFAA8F",
+      state: "#8C6B4F",
+      // main: "#747b8a",
+      // state: "#495361",
     },
 
     info: {
-      main: "#49a3f1",
-      state: "#1A73E8",
+      main: "#8C6B4F",
+      state: "#260101",
+      // main: "#49a3f1",
+      // state: "#1A73E8",
     },
 
     success: {
@@ -112,13 +128,17 @@ export default {
     },
 
     light: {
-      main: "#EBEFF4",
-      state: "#CED4DA",
+      main: "#F2E6D8",
+      state: "#BFAA8F",
+      // main: "#EBEFF4",
+      // state: "#CED4DA",
     },
 
     dark: {
-      main: "#42424a",
-      state: "#191919",
+      main: "#260101",
+      state: "#260101",
+      // main: "#42424a",
+      // state: "#191919",
     },
   },
 
@@ -227,9 +247,12 @@ export default {
   },
 
   coloredShadows: {
-    primary: "#e91e62",
-    secondary: "#110e0e",
-    info: "#00bbd4",
+    primary: "#D99F59",
+    secondary: "#BFAA8F",
+    info: "#8C6B4F",
+    // primary: "#e91e62",
+    // secondary: "#110e0e",
+    // info: "#00bbd4",
     success: "#4caf4f",
     warning: "#ff9900",
     error: "#f44336",
