@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-// import { useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import supabase from "../../supabaseClient";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -11,6 +11,8 @@ import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKDatePicker from "components/MKDatePicker";
 import MenuItem from "@mui/material/MenuItem";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import { services } from "../LandingPages/Coworking/sections/servicesData";
 
 import NavBar from "pages/LandingPages/Coworking/NavBar";
@@ -18,15 +20,27 @@ import DefaultFooter from "examples/Footers/DefaultFooter";
 import footerRoutes from "footer.routes";
 
 function Reservation() {
-  // const { search } = useLocation();
-  // const serviceParam = new URLSearchParams(search).get("service") || "";
+  const { search } = useLocation();
+  const serviceParam = new URLSearchParams(search).get("service") || "";
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
     email: "",
-    service: "",
+    service: serviceParam,
     date: new Date(),
   });
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    severity: "success",
+    message: "",
+  });
+
+  useEffect(() => {
+    if (serviceParam) {
+      setForm((prev) => ({ ...prev, service: serviceParam }));
+    }
+  }, [serviceParam]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -41,20 +55,22 @@ function Reservation() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.phone || !form.email || !form.service) {
-      alert("Vyplňte prosím všechna povinná pole.");
+      setSnackbar({
+        open: true,
+        severity: "error",
+        message: "Vyplňte prosím všechna povinná pole.",
+      });
       return;
     }
 
     const reservations = JSON.parse(localStorage.getItem("reservations") || "[]");
     reservations.push(form);
     localStorage.setItem("reservations", JSON.stringify(reservations));
-    alert("Rezervace uložena.");
-    // Insert reservation into Supabase and send notification email
     const { data, error } = await supabase.from("reservations").insert([form]).select();
 
     if (error) {
       console.error(error);
-      alert("Chyba při ukládání rezervace.");
+      setSnackbar({ open: true, severity: "error", message: "Chyba při ukládání rezervace." });
       return;
     }
 
@@ -64,11 +80,11 @@ function Reservation() {
     });
     if (emailError) {
       console.error(emailError);
-      alert("Chyba při odesílání e-mailu.");
+      setSnackbar({ open: true, severity: "error", message: "Chyba při odesílání e-mailu." });
       return;
     }
 
-    alert("Rezervace uložena.");
+    setSnackbar({ open: true, severity: "success", message: "Rezervace uložena." });
     setForm({ name: "", phone: "", email: "", service: "", date: new Date() });
   };
 
@@ -161,6 +177,20 @@ function Reservation() {
           </Grid>
         </Container>
       </MKBox>
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={3000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <MuiAlert
+          onClose={() => setSnackbar({ ...snackbar, open: false })}
+          severity={snackbar.severity}
+          sx={{ width: "100%" }}
+        >
+          {snackbar.message}
+        </MuiAlert>
+      </Snackbar>
       <MKBox pt={6}>
         <DefaultFooter content={footerRoutes} />
       </MKBox>
