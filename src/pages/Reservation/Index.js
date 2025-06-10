@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
+import supabase from "../../supabaseClient";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -8,13 +10,23 @@ import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 import MKDatePicker from "components/MKDatePicker";
+import MenuItem from "@mui/material/MenuItem";
+import { services } from "../LandingPages/Coworking/sections/servicesData";
 
 import NavBar from "pages/LandingPages/Coworking/NavBar";
 import DefaultFooter from "examples/Footers/DefaultFooter";
 import footerRoutes from "footer.routes";
 
 function Reservation() {
-  const [form, setForm] = useState({ name: "", contact: "", date: new Date() });
+  // const { search } = useLocation();
+  // const serviceParam = new URLSearchParams(search).get("service") || "";
+  const [form, setForm] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    service: "",
+    date: new Date(),
+  });
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -26,13 +38,21 @@ function Reservation() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!form.name || !form.phone || !form.email || !form.service) {
+      alert("Vyplňte prosím všechna povinná pole.");
+      return;
+    }
+
     const reservations = JSON.parse(localStorage.getItem("reservations") || "[]");
     reservations.push(form);
     localStorage.setItem("reservations", JSON.stringify(reservations));
     alert("Rezervace uložena.");
-    setForm({ name: "", contact: "", date: new Date() });
+
+    await supabase.functions.invoke("send-reservation-email", { body: data[0] });
+    alert("Rezervace uložena.");
+    setForm({ name: "", phone: "", email: "", service: "", date: new Date() });
   };
 
   return (
@@ -61,14 +81,44 @@ function Reservation() {
                     </Grid>
                     <Grid item xs={12}>
                       <MKInput
-                        label="Kontakt"
-                        name="contact"
-                        value={form.contact}
+                        label="Telefon"
+                        name="phone"
+                        value={form.phone}
                         onChange={handleChange}
                         fullWidth
                         variant="standard"
                         InputLabelProps={{ shrink: true }}
                       />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <MKInput
+                        type="email"
+                        label="Email"
+                        name="email"
+                        value={form.email}
+                        onChange={handleChange}
+                        fullWidth
+                        variant="standard"
+                        InputLabelProps={{ shrink: true }}
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <MKInput
+                        select
+                        label="Služba"
+                        name="service"
+                        value={form.service}
+                        onChange={handleChange}
+                        fullWidth
+                        variant="standard"
+                        InputLabelProps={{ shrink: true }}
+                      >
+                        {services.map((s) => (
+                          <MenuItem key={s.title} value={s.title}>
+                            {s.title}
+                          </MenuItem>
+                        ))}
+                      </MKInput>
                     </Grid>
                     <Grid item xs={12}>
                       <MKDatePicker
