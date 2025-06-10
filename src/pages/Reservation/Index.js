@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import supabase from "../../supabaseClient";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
@@ -49,7 +49,16 @@ function Reservation() {
     reservations.push(form);
     localStorage.setItem("reservations", JSON.stringify(reservations));
     alert("Rezervace uložena.");
+    // Insert reservation into Supabase and send notification email
+    const { data, error } = await supabase.from("reservations").insert([form]).select();
 
+    if (error) {
+      console.error(error);
+      alert("Chyba při ukládání rezervace.");
+      return;
+    }
+
+    // eslint-disable-next-line no-undef
     await supabase.functions.invoke("send-reservation-email", { body: data[0] });
     alert("Rezervace uložena.");
     setForm({ name: "", phone: "", email: "", service: "", date: new Date() });
