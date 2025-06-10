@@ -29,6 +29,7 @@ function Reservation() {
     email: "",
     service: serviceParam,
     date: new Date(),
+    timeOfDay: "",
   });
   const [snackbar, setSnackbar] = useState({
     open: false,
@@ -54,7 +55,7 @@ function Reservation() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.phone || !form.email || !form.service) {
+    if (!form.name || !form.phone || !form.email || !form.service || !form.timeOfDay) {
       setSnackbar({
         open: true,
         severity: "error",
@@ -89,7 +90,14 @@ function Reservation() {
       severity: "success",
       message: "Rezervace uložena.Budeme Vás za nedlouho kontaktovat",
     });
-    setForm({ name: "", phone: "", email: "", service: "", date: new Date() });
+    setForm({
+      name: "",
+      phone: "",
+      email: "",
+      service: "",
+      date: new Date(),
+      timeOfDay: "",
+    });
   };
 
   return (
@@ -161,13 +169,29 @@ function Reservation() {
                       <MKDatePicker
                         value={form.date}
                         onChange={handleDateChange}
-                        options={{ enableTime: true, dateFormat: "Y-m-d H:i" }}
+                        options={{ enableTime: false, dateFormat: "Y-m-d" }}
                         input={{
                           label: "Datum a čas",
                           fullWidth: true,
                           InputLabelProps: { shrink: true },
                         }}
                       />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <MKInput
+                        select
+                        label="Preferovaný čas"
+                        name="timeOfDay"
+                        value={form.timeOfDay}
+                        onChange={handleChange}
+                        fullWidth
+                        variant="standard"
+                        InputLabelProps={{ shrink: true }}
+                      >
+                        <MenuItem value="Dopolední">Dopolední</MenuItem>
+                        <MenuItem value="Odpolední">Odpolední</MenuItem>
+                        <MenuItem value="Večerní">Večerní</MenuItem>
+                      </MKInput>
                     </Grid>
                     <Grid item xs={12} textAlign="center" mt={2}>
                       <MKButton type="submit" variant="gradient" color="info">
