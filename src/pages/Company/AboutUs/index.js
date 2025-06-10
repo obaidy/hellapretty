@@ -43,7 +43,7 @@ function AboutUs() {
               O nás
             </MKTypography>
             <MKTypography variant="body1" color="white" opacity={0.8} mt={1} mb={3}>
-              Za estetickém centrem Hella Pretty stojí tým zkušených odborníků, které spojuje vášeň
+              Za estetickým centrem Hella Pretty stojí tým zkušených odborníků, které spojuje vášeň
               pro krásu, preciznost a individuální přístup. Každý z nás je odborník ve svém oboru a
               společně tvoříme prostředí, kde se klienti cítí jistě, komfortně a odcházejí s
               úsměvem. Naším cílem je vždy maximální spokojenost a přirozeně krásný výsledek.

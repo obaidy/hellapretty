@@ -1,24 +1,24 @@
 // @mui icons
-import InstagramIcon from "@mui/icons-material/Instagram";
+// import InstagramIcon from "@mui/icons-material/Instagram";
 
 // Material Kit 2 PRO React components
 import MKTypography from "components/MKTypography";
 
 // Images
-import hplogo from "assets/images/hplogo.png";
+// import hplogo from "assets/images/hplogo.png";
 
 const date = new Date().getFullYear();
 
 export default {
   brand: {
-    name: "Hella Pretty",
-    image: hplogo,
-    route: "/#home",
+    // name: "Hella Pretty",
+    // image: hplogo,
+    // route: "/#home",
   },
   socials: [
     {
-      icon: <InstagramIcon />,
-      link: "https://www.instagram.com/hella_pretty_derma/?igsh=OGh6MnhnZTdkdnlx",
+      // icon: <InstagramIcon />,
+      // link: "https://www.instagram.com/hella_pretty_derma/?igsh=OGh6MnhnZTdkdnlx",
     },
   ],
   menus: [

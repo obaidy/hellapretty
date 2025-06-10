@@ -12,6 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import { Link as ScrollLink } from "react-scroll";
 import { Link as RouterLink, useLocation } from "react-router-dom";
 
@@ -50,12 +51,6 @@ const Navbar = () => {
     </>
   );
 
-  // const reservationButton = (
-  //   <Button variant="contained" color="info" component={RouterLink} to="/reserve">
-  //     Rezervace
-  //   </Button>
-  // );
-
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "#F2F2F2", boxShadow: "none" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
@@ -87,7 +82,15 @@ const Navbar = () => {
               <Box sx={{ width: 250, p: 2 }} role="presentation" onClick={toggleDrawer}>
                 <Stack spacing={2} alignItems="flex-start">
                   {navLinks}
-                  {/* {reservationButton} */}
+                  <IconButton
+                    component="a"
+                    href="https://www.instagram.com/hella_pretty_derma/?igsh=OGh6MnhnZTdkdnlx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{ color: "black" }}
+                  >
+                    <InstagramIcon />
+                  </IconButton>
                 </Stack>
               </Box>
             </Drawer>
@@ -97,7 +100,15 @@ const Navbar = () => {
             <Stack direction="row" spacing={3}>
               {navLinks}
             </Stack>
-            {/* {reservationButton} */}
+            <IconButton
+              component="a"
+              href="https://www.instagram.com/hella_pretty_derma/?igsh=OGh6MnhnZTdkdnlx"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ color: "black" }}
+            >
+              <InstagramIcon />
+            </IconButton>
           </Box>
         )}
       </Toolbar>
