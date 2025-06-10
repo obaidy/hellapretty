@@ -13,23 +13,37 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link as ScrollLink } from "react-scroll";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const { pathname } = useLocation();
+  const isHome = pathname === "/";
 
   const toggleDrawer = () => setDrawerOpen((prev) => !prev);
 
   const navLinks = (
     <>
-      <ScrollLink to="services" smooth duration={500}>
-        <Button color="inherit">Služby</Button>
-      </ScrollLink>
-      <ScrollLink to="prices" smooth duration={500}>
-        <Button color="inherit">Cenik</Button>
-      </ScrollLink>
+      {isHome ? (
+        <ScrollLink to="services" smooth duration={500}>
+          <Button color="inherit">Služby</Button>
+        </ScrollLink>
+      ) : (
+        <Button component={RouterLink} to="/#services" color="inherit">
+          Služby
+        </Button>
+      )}
+      {isHome ? (
+        <ScrollLink to="prices" smooth duration={500}>
+          <Button color="inherit">Cenik</Button>
+        </ScrollLink>
+      ) : (
+        <Button component={RouterLink} to="/#prices" color="inherit">
+          Cenik
+        </Button>
+      )}
       <Button component={RouterLink} to="/pages/company/about-us" color="inherit">
         O nás
       </Button>
@@ -51,16 +65,24 @@ const Navbar = () => {
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "#F2F2F2", boxShadow: "none" }}>
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        <ScrollLink
-          to="home"
-          smooth
-          duration={500}
-          style={{ textDecoration: "none", color: "inherit" }}
-        >
-          <Typography variant="h6" sx={{ fontWeight: "bold", cursor: "pointer" }}>
-            Hella Pretty
-          </Typography>
-        </ScrollLink>
+        {isHome ? (
+          <ScrollLink
+            to="home"
+            smooth
+            duration={500}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <Typography variant="h6" sx={{ fontWeight: "bold", cursor: "pointer" }}>
+              Hella Pretty
+            </Typography>
+          </ScrollLink>
+        ) : (
+          <RouterLink to="/#home" style={{ textDecoration: "none", color: "inherit" }}>
+            <Typography variant="h6" sx={{ fontWeight: "bold", cursor: "pointer" }}>
+              Hella Pretty
+            </Typography>
+          </RouterLink>
+        )}
 
         {isMobile ? (
           <>

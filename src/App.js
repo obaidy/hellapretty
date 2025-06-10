@@ -24,13 +24,22 @@ import AboutUsPage from "layouts/pages/company/about-us";
 // import routes from "routes";
 
 export default function App() {
-  const { pathname } = useLocation();
+  const location = useLocation();
+  const { pathname, hash } = location;
 
   // Setting page scroll to 0 when changing the route
   useEffect(() => {
+    if (hash) {
+      const id = hash.replace("#", "");
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+    }
     document.documentElement.scrollTop = 0;
     document.scrollingElement.scrollTop = 0;
-  }, [pathname]);
+  }, [pathname, hash]);
 
   // eslint-disable-next-line no-unused-vars
   const getRoutes = (allRoutes) =>
