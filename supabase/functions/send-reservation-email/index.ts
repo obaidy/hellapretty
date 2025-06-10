@@ -16,7 +16,7 @@ serve(async (req) => {
   }
 
   try {
-    const { name, phone, email, service, date } = await req.json();
+    const { name, phone, email, service, date, timeOfDay } = await req.json();
 
     const transport = createTransport({
       host: 'smtp.sendgrid.net',
@@ -31,7 +31,8 @@ serve(async (req) => {
       Phone: ${phone}
       Email: ${email}
       Service: ${service}
-      Date: ${date}`;
+      Date: ${date}
+      Preferred time: ${timeOfDay}`;
 
     await transport.sendMail({
       to: Deno.env.get('MAIL_TO'),
