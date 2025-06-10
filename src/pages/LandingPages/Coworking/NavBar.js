@@ -50,11 +50,11 @@ const Navbar = () => {
     </>
   );
 
-  const reservationButton = (
-    <Button variant="contained" color="info" component={RouterLink} to="/reserve">
-      Rezervace
-    </Button>
-  );
+  // const reservationButton = (
+  //   <Button variant="contained" color="info" component={RouterLink} to="/reserve">
+  //     Rezervace
+  //   </Button>
+  // );
 
   return (
     <AppBar position="sticky" sx={{ backgroundColor: "#F2F2F2", boxShadow: "none" }}>
@@ -85,9 +85,9 @@ const Navbar = () => {
             </IconButton>
             <Drawer anchor="right" open={drawerOpen} onClose={toggleDrawer}>
               <Box sx={{ width: 250, p: 2 }} role="presentation" onClick={toggleDrawer}>
-                <Stack spacing={2}>
+                <Stack spacing={2} alignItems="flex-start">
                   {navLinks}
-                  {reservationButton}
+                  {/* {reservationButton} */}
                 </Stack>
               </Box>
             </Drawer>
@@ -97,7 +97,7 @@ const Navbar = () => {
             <Stack direction="row" spacing={3}>
               {navLinks}
             </Stack>
-            {reservationButton}
+            {/* {reservationButton} */}
           </Box>
         )}
       </Toolbar>

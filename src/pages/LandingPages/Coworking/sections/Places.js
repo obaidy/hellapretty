@@ -93,7 +93,7 @@ function Places() {
         <Grid container spacing={3} sx={{ mt: 3 }}>
           {services.map(({ image, title, description, route }) => (
             <Grid item xs={12} md={6} lg={4} key={title}>
-              <MKBox mt={3} height="100%" display="flex">
+              <MKBox mt={3} mb={{ xs: 5, md: 3 }} height="100%" display="flex">
                 <SimpleBlogCard
                   image={image}
                   title={title}
