@@ -4,7 +4,7 @@ This project now uses [Supabase](https://supabase.com) for storing reservations 
 
 ## Environment variables
 
-Create a `.env` file (or set these variables in your hosting provider) with the following keys:
+Copy `.env.example` to `.env` and update the values (or set these variables in your hosting provider) using the following keys:
 
 - `REACT_APP_SUPABASE_URL` – URL of your Supabase project
 - `REACT_APP_SUPABASE_ANON_KEY` – Supabase anonymous key

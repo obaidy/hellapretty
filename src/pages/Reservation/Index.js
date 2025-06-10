@@ -59,7 +59,15 @@ function Reservation() {
     }
 
     // eslint-disable-next-line no-undef
-    await supabase.functions.invoke("send-reservation-email", { body: data[0] });
+    const { error: emailError } = await supabase.functions.invoke("send-reservation-email", {
+      body: data[0],
+    });
+    if (emailError) {
+      console.error(emailError);
+      alert("Chyba při odesílání e-mailu.");
+      return;
+    }
+
     alert("Rezervace uložena.");
     setForm({ name: "", phone: "", email: "", service: "", date: new Date() });
   };
