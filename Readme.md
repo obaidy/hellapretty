@@ -1,6 +1,8 @@
 # HellaPretty Reservations
 
 This project now uses [Supabase](https://supabase.com) for storing reservations and sending emails via a Supabase Edge Function.
+The email notification is sent using SendGrid's HTTP API since Edge functions
+cannot open outbound SMTP connections.
 
 ## Environment variables
 
@@ -12,4 +14,4 @@ Copy `.env.example` to `.env` and update the values (or set these variables in y
 - `MAIL_FROM` – Email address used as the sender
 - `MAIL_TO` – Destination email address for reservation notifications
 
-These variables are required to insert reservations into the `reservations` table and to send a notification email after a reservation is created.
+TThese variables are required to insert reservations into the `reservations` table and to send a notification email after a reservation is created.

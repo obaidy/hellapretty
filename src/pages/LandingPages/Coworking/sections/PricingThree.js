@@ -14,9 +14,10 @@ const categories = [
     title: "Dermatokosmetické služby",
     services: [
       { name: "Mikrojehličkování", price: "od 1490 Kč" },
-      { name: "Hydrafacial, dermabraze", price: "od 1290 Kč" },
+      { name: "Hydrafacial, dermabraze", price: "od 1490 Kč" },
       { name: "BB Glow", price: "od 1590 Kč" },
       { name: "Rty, Hyaluron", price: "od 5490 Kč" },
+      { name: "Konturace obličeje", price: "od 6900 Kč" },
       { name: "Permanentní makeup obočí", price: "od 3990 Kč" },
       { name: "Permanentní make-up rtů", price: "od 3990 Kč" },
       { name: "Permanentní make-up očních linek", price: "od 3990 Kč" },
@@ -33,12 +34,12 @@ const categories = [
     title: "Prodlužování řas",
     services: [
       {
-        name: "Prodlužování Řas 3-5d led metoda bez lepidla",
-        price: "od 1390 Kč",
+        name: "Prodlužování Řas 1-3d klasické",
+        price: "od 1290 Kč",
       },
       {
-        name: "Prodlužování Řas 1-3d s efekty či klasické",
-        price: "od 1290 Kč",
+        name: "Prodlužování Řas s efekty (maskara, foxy..)",
+        price: "od 1390 Kč",
       },
       { name: "Pouze zahuštění konečků na konci", price: "od 690 Kč" },
     ],
@@ -46,12 +47,11 @@ const categories = [
   {
     title: "Přirozená úprava řas a obočí",
     services: [
-      { name: "Natočení řas/trvalá s výživou", price: "od 690 Kč" },
+      { name: "Natočení řas/trvalá s výživou", price: "od 790 Kč" },
       { name: "Laminace obočí", price: "od 690 Kč" },
-      { name: "Barvení obočí nebo řas s úpravou", price: "od 200 Kč" },
-      { name: "Barvení obočí Hennou", price: "od 350 Kč" },
-      { name: "Trhání obočí voskem ke službě", price: "+ 50 Kč" },
-      { name: "Maska a péče na řasy a obočí", price: "+ 100 Kč" },
+      { name: "Barvení obočí nebo řas s úpravou", price: "od 300 Kč" },
+      { name: "Úpravy voskem ke službě", price: "od 100 Kč" },
+      { name: "Maska a péče na řasy a obočí", price: " 100 Kč" },
     ],
   },
 ];
