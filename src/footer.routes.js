@@ -24,7 +24,7 @@ export default {
   menus: [
     {
       name: "Rezervace",
-      items: [{ name: "Rezervace Zde", href: "https://calendly.com/hellapretty/" }],
+      items: [{ name: "Rezervace Zde", route: "/reserve" }],
     },
     {
       name: "Cenik",

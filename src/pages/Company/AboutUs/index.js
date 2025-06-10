@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
+import { Link as RouterLink } from "react-router-dom";
 
 import NavBar from "pages/LandingPages/Coworking/NavBar";
 import DefaultFooter from "examples/Footers/DefaultFooter";
@@ -49,11 +50,9 @@ function AboutUs() {
               NATALIE
             </MKTypography>
             <Stack direction="row" spacing={1} mt={2}>
-              <a href="https://calendly.com/hellapretty/" target="_blank" rel="noopener noreferrer">
-                <MKButton variant="gradient" color="info">
-                  Rezervace
-                </MKButton>
-              </a>
+              <MKButton component={RouterLink} to="/reserve" variant="gradient" color="info">
+                Rezervace
+              </MKButton>
             </Stack>
           </Grid>
         </Container>

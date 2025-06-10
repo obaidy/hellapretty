@@ -51,13 +51,7 @@ const Navbar = () => {
   );
 
   const reservationButton = (
-    <Button
-      variant="contained"
-      color="info"
-      href="https://calendly.com/hellapretty/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Button variant="contained" color="info" component={RouterLink} to="/reserve">
       Rezervace
     </Button>
   );

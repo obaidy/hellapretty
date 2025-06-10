@@ -1,12 +1,7 @@
-/**
-=========================================================
-
-*/
-
 import { useEffect } from "react";
 
 // react-router components
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation, Link } from "react-router-dom";
 
 // @mui material components
 import { ThemeProvider } from "@mui/material/styles";
@@ -20,6 +15,7 @@ import "./FloatingButton.css";
 import CoworkingPage from "pages/LandingPages/Coworking";
 import GDPRConsentDialog from "./pages/LandingPages/Coworking/components/GDPRConsentDialog";
 import AboutUsPage from "layouts/pages/company/about-us";
+import ReservationPage from "pages/Reservation/Index";
 
 // import routes from "routes";
 
@@ -62,21 +58,17 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Cowrking />} />
           <Route path="/" element={<CoworkingPage />} />
+          <Route path="/reserve" element={<ReservationPage />} />
           <Route path="*" element={<Navigate to="/" />} />
           <Route path="/pages/company/about-us" element={<AboutUsPage />} />
         </Routes>
         <GDPRConsentDialog />
       </ThemeProvider>
-      <a
-        href="https://calendly.com/hellapretty/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="floating-reserve-btn"
-      >
+      <Link to="/reserve" className="floating-reserve-btn">
         Reserve
         <br />
         Now
-      </a>
+      </Link>
     </div>
   );
 }

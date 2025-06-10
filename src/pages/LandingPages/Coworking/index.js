@@ -42,8 +42,8 @@ function Coworking() {
       {/* <DefaultNavbar
         routes={routes}
         action={{
-          type: "external",
-          route: "https://calendly.com/hellapretty/",
+          type: "internal",
+          route: "/reserve",
           label: "Rezervace",
           color: "info",
         }}
@@ -96,11 +96,10 @@ function Coworking() {
               {/* Profesionální služby v Prostějově. */}
             </MKTypography>
             {/* <Stack direction="row" spacing={1} mt={6} mb={3}>
-              <a href="https://calendly.com/hellapretty/" target="_blank" rel="noopener noreferrer">
-                <MKButton variant="gradient" color="info">
-                  Rezervace
-                </MKButton>
-              </a> */}
+            <MKButton component={RouterLink} to="/reserve" variant="gradient" color="info">
+                Rezervace
+              </MKButton>
+            </Stack> */}
             {/* <MKButton variant="text" color="white">
                 read more
               </MKButton> */}
