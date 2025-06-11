@@ -42,7 +42,7 @@ const Navbar = () => {
         </ScrollLink>
       ) : (
         <Button component={RouterLink} to="/#prices" color="inherit">
-          Cenik
+          CENÍK
         </Button>
       )}
       <Button component={RouterLink} to="/pages/company/about-us" color="inherit">
