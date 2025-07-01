@@ -13,11 +13,11 @@ import MKDatePicker from "components/MKDatePicker";
 import MenuItem from "@mui/material/MenuItem";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
-import { services } from "../LandingPages/Coworking/sections/servicesData";
 
 import NavBar from "pages/LandingPages/Coworking/NavBar";
 import DefaultFooter from "examples/Footers/DefaultFooter";
 import footerRoutes from "footer.routes";
+import { services } from "./serviceReservation";
 
 function Reservation() {
   const { search } = useLocation();
