@@ -18,9 +18,6 @@ const categories = [
       { name: "BB Glow", price: "od 1590 Kč" },
       { name: "Rty, Hyaluron", price: "od 5490 Kč" },
       { name: "Konturace obličeje", price: "od 6900 Kč" },
-      { name: "Permanentní makeup obočí", price: "od 3990 Kč" },
-      { name: "Permanentní make-up rtů", price: "od 3990 Kč" },
-      { name: "Permanentní make-up očních linek", price: "od 3990 Kč" },
       { name: "Chemický Peeling/Biorepeel", price: "od 1490 Kč" },
       { name: "Inovativní ošetření očního okolí", price: "od 1290 Kč" },
       { name: "Anti Age, odbourání známek stárnutí", price: "od 1490 Kč" },
@@ -45,10 +42,18 @@ const categories = [
     ],
   },
   {
+    title: "Permanentní make-up",
+    services: [
+      { name: "Permanentní makeup obočí", price: "od 3990 Kč" },
+      { name: "Permanentní make-up rtů", price: "od 3990 Kč" },
+      { name: "Permanentní make-up očních linek", price: "od 3990 Kč" },
+    ],
+  },
+  {
     title: "Přirozená úprava řas a obočí",
     services: [
-      { name: "Natočení řas/trvalá s výživou", price: "od 790 Kč" },
-      { name: "Laminace obočí", price: "od 690 Kč" },
+      { name: "Natočení řas/trvalá s výživou", price: "790 Kč" },
+      { name: "Laminace obočí", price: "790 Kč" },
       { name: "Barvení obočí nebo řas s úpravou", price: "od 300 Kč" },
       { name: "Úpravy voskem ke službě", price: "od 100 Kč" },
       { name: "Maska a péče na řasy a obočí", price: " 100 Kč" },
@@ -57,7 +62,7 @@ const categories = [
   {
     title: "Pedikúra",
     services: [
-      { name: "přístrojová,suchá, mokrá, kombinovaná", price: "od 500 Kč" },
+      { name: "Přístrojová, suchá, mokrá, kombinovaná", price: "od 500 Kč" },
       { name: "S gel lakem", price: "+ 250 Kč" },
       { name: "Dekorace, Malování", price: "od 50 Kč" },
       { name: "Masáž ke službě", price: "od 150 Kč" },

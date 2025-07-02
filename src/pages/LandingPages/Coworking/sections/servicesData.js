@@ -10,7 +10,7 @@ export const services = [
     image: microneedling1,
     title: "Micro-Needling",
     description:
-      "Mikrojehličková mezoterapiie, známá také jako microneedling je inovativní metoda navržena tak, aby vaší pleti poskytla optimální zlepšení struktury a celkového stavu obličeje, ale také se může využít na krk, dekolt či ruce..",
+      "Mikrojehličková mezoterapie, známá také jako microneedling je inovativní metoda navržena tak, aby vaší pleti poskytla optimální zlepšení struktury a celkového stavu obličeje, ale také se může využít na krk, dekolt či ruce..",
     route: "/reserve",
   },
   {
@@ -24,28 +24,28 @@ export const services = [
     image: peeling,
     title: "Chemický Peeling",
     description:
-      "Za pomoci špičkových vědeckých postupů Vám přinášíme tuto ověřenou obnovu pleti. Mixy kyselin jsou jako elixír krásy, který účinně odstraňuje odumřelé buňky, jizvy po akné, vrásky a po několika sezení vytváří novou svrchní vrstvu pokožky.",
+      "Za pomoci špičkových vědeckých postupů Vám přinášíme tuto ověřenou obnovu pleti. Mixy kyselin jsou jako elixír krásy, které účinně odstraňují odumřelé buňky, jizvy po akné, vrásky a po několika sezení vytváří novou svrchní vrstvu pokožky.",
     route: "/reserve",
   },
   {
     image: Ras,
     title: "Prodlužování Řas",
     description:
-      "Dodejte svým řasám intenzitu a eleganci pomocí našich šikovných odborníků, kteří vám zajistí šetrné a precizní prodlužování řas. Aplikujeme vždy nový a čistý set délky a objemu podle Vašich představ.",
+      "Dodejte svým řasám intenzitu a eleganci pomocí našich šikovných odborníků, kteří vám zajistí šetrné a precizní prodlužování řas. Aplikujeme vždy nový a čistý set délky a objem podle Vašich představ.",
     route: "/reserve",
   },
   {
     image: hydra,
     title: "Hydrafacial - dermabraze",
     description:
-      "Kombinace jemné exfoliace, hloubkového čištění pórů, hydratace pomocí aktivních sér v jednom ošetření. Pleť je po dermohydrabrazi okamžitě svěží, hladká a rozjasněná bez podráždění nebo nutnosti rekonvalescence. Vyzkoušejte tento Hollywoodský trend.",
+      "Kombinace jemné exfoliace, hloubkového čištění, hydratace pomocí aktivních sér v jednom ošetření. Pleť je po dermohydrabrazi okamžitě svěží, hladká a rozjasněná bez podráždění nebo nutnosti rekonvalescence. Vyzkoušejte tento Hollywoodský trend.",
     route: "/reserve",
   },
   {
     image: plet,
     title: "Ošetření Pleti",
     description:
-      "Užijte si individuální péči přizpůsobenou právě vaší pleti! Vaši pleť očistíme a v případě tvrdší kůže nebo šupinek ji jemně změkčíme, otevřeme póry a poté aplikujeme koncentrát/sérum, masku, tonik a finish krém.",
+      "Užijte si individuální péči přizpůsobenou právě vaší pleti! Pleť očistíme a v případě tvrdší kůže nebo šupinek ji jemně změkčíme, otevřeme póry a poté aplikujeme koncentrát/sérum, infra-terapii, masku, tonik a finish krém.",
     route: "/reserve",
   },
 ];
