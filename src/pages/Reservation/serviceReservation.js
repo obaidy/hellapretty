@@ -15,4 +15,5 @@ export const services = [
   { title: "Laminace obočí" },
   { title: "Laminace řas" },
   { title: "Barvení obočí nebo řas s úpravou" },
+  { title: "Pedikúra" },
 ];

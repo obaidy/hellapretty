@@ -54,6 +54,15 @@ const categories = [
       { name: "Maska a péče na řasy a obočí", price: " 100 Kč" },
     ],
   },
+  {
+    title: "Pedikúra",
+    services: [
+      { name: "přístrojová,suchá, mokrá, kombinovaná", price: "od 500 Kč" },
+      { name: "S gel lakem", price: "+ 250 Kč" },
+      { name: "Dekorace, Malovani", price: "od 50 Kč" },
+      { name: "Masáž ke službě", price: "od 150 Kč" },
+    ],
+  },
 ];
 
 function PricingThree() {
