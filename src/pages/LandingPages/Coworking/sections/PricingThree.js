@@ -59,7 +59,7 @@ const categories = [
     services: [
       { name: "přístrojová,suchá, mokrá, kombinovaná", price: "od 500 Kč" },
       { name: "S gel lakem", price: "+ 250 Kč" },
-      { name: "Dekorace, Malovani", price: "od 50 Kč" },
+      { name: "Dekorace, Malování", price: "od 50 Kč" },
       { name: "Masáž ke službě", price: "od 150 Kč" },
     ],
   },
