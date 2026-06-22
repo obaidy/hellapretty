@@ -1,5 +1,5 @@
 [build]
-  command = "PUBLIC_URL= npm run build"
+  command = "bash scripts/netlify-build.sh"
   publish = "build"
 
 [build.environment]
