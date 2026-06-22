@@ -5,6 +5,6 @@ const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 // eslint-disable-next-line no-undef
 const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
 
-const supabase = createClient(supabaseUrl, supabaseAnonKey);
+const supabase = supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null;
 
 export default supabase;

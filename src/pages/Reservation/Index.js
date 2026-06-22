@@ -67,6 +67,16 @@ function Reservation() {
     const reservations = JSON.parse(localStorage.getItem("reservations") || "[]");
     reservations.push(form);
     localStorage.setItem("reservations", JSON.stringify(reservations));
+
+    if (!supabase) {
+      setSnackbar({
+        open: true,
+        severity: "error",
+        message: "Rezervace není momentálně dostupná. Zkuste to prosím později.",
+      });
+      return;
+    }
+
     // eslint-disable-next-line no-unused-vars
     const { data, error } = await supabase.from("reservations").insert([form]).select();
 
