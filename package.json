@@ -5,6 +5,7 @@
   "author": "Creative Tim",
   "license": "See license in https://www.creative-tim.com/license",
   "description": "React version of Material Kit 2 PRO by Creative Tim",
+  "homepage": "https://hellapretty.cz",
   "bugs": {
     "url": "https://github.com/creativetimofficial/ct-material-kit-pro-react/issues"
   },
@@ -48,7 +49,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && node scripts/fix-netlify-paths.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint ./src",
