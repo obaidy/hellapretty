@@ -10,7 +10,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 // Material Kit 2 PRO React themes
 import theme from "assets/theme";
 // import Presentation from "layouts/pages/presentation";
-import Cowrking from "pages/LandingPages/Coworking/index.js";
 import "./FloatingButton.css";
 import CoworkingPage from "pages/LandingPages/Coworking";
 import GDPRConsentDialog from "./pages/LandingPages/Coworking/components/GDPRConsentDialog";
@@ -56,11 +55,10 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Routes>
-          <Route path="/" element={<Cowrking />} />
           <Route path="/" element={<CoworkingPage />} />
           <Route path="/reserve" element={<ReservationPage />} />
-          <Route path="*" element={<Navigate to="/" />} />
           <Route path="/pages/company/about-us" element={<AboutUsPage />} />
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
         <GDPRConsentDialog />
       </ThemeProvider>
