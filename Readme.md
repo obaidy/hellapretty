@@ -1,17 +1,27 @@
 # HellaPretty Reservations
 
-This project now uses [Supabase](https://supabase.com) for storing reservations and sending emails via a Supabase Edge Function.
-The email notification is sent using SendGrid's HTTP API since Edge functions
-cannot open outbound SMTP connections.
+Reservations are sent to Telegram via a Netlify serverless function. Supabase and email are no longer used.
 
-## Environment variables
+## Telegram setup
 
-Copy `.env.example` to `.env` and update the values (or set these variables in your hosting provider) using the following keys:
+1. Open Telegram and message [@BotFather](https://t.me/BotFather).
+2. Create a bot with `/newbot` and copy the **bot token**.
+3. Start a chat with your new bot (send any message).
+4. Open `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates` and find your **chat id** in the response.
+5. In Netlify, go to **Site configuration → Environment variables** and add:
+   - `TELEGRAM_BOT_TOKEN` – your bot token
+   - `TELEGRAM_CHAT_ID` – your chat id (number, or group id like `-100...`)
 
-- `REACT_APP_SUPABASE_URL` – URL of your Supabase project
-- `REACT_APP_SUPABASE_ANON_KEY` – Supabase anonymous key
-- `SENDGRID_API_KEY` – API key used by the `send-reservation-email` function
-- `MAIL_FROM` – Email address used as the sender
-- `MAIL_TO` – Destination email address for reservation notifications
+Redeploy the site after adding the variables.
 
-TThese variables are required to insert reservations into the `reservations` table and to send a notification email after a reservation is created.
+## Local development
+
+Copy `.env.example` to `.env` and set the Telegram variables. Run the site with the Netlify CLI so functions work locally:
+
+```bash
+npm install
+npm run build
+npx netlify dev
+```
+
+The reservation form posts to `/.netlify/functions/send-reservation`.

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import supabase from "../../supabaseClient";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
@@ -19,6 +18,14 @@ import DefaultFooter from "examples/Footers/DefaultFooter";
 import footerRoutes from "footer.routes";
 import { services } from "./serviceReservation";
 
+function formatDate(date) {
+  if (!(date instanceof Date) || Number.isNaN(date.getTime())) {
+    return "";
+  }
+
+  return date.toISOString().split("T")[0];
+}
+
 function Reservation() {
   const { search } = useLocation();
   const serviceParam = new URLSearchParams(search).get("service") || "";
@@ -31,6 +38,7 @@ function Reservation() {
     date: new Date(),
     timeOfDay: "",
   });
+  const [submitting, setSubmitting] = useState(false);
   const [snackbar, setSnackbar] = useState({
     open: false,
     severity: "success",
@@ -64,51 +72,51 @@ function Reservation() {
       return;
     }
 
-    const reservations = JSON.parse(localStorage.getItem("reservations") || "[]");
-    reservations.push(form);
-    localStorage.setItem("reservations", JSON.stringify(reservations));
+    const payload = {
+      name: form.name.trim(),
+      phone: form.phone.trim(),
+      email: form.email.trim(),
+      service: form.service,
+      date: formatDate(form.date),
+      timeOfDay: form.timeOfDay,
+    };
 
-    if (!supabase) {
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/.netlify/functions/send-reservation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setSnackbar({
+        open: true,
+        severity: "success",
+        message: "Rezervace odeslána. Budeme Vás brzy kontaktovat.",
+      });
+      setForm({
+        name: "",
+        phone: "",
+        email: "",
+        service: "",
+        date: new Date(),
+        timeOfDay: "",
+      });
+    } catch (error) {
+      console.error(error);
       setSnackbar({
         open: true,
         severity: "error",
-        message: "Rezervace není momentálně dostupná. Zkuste to prosím později.",
+        message: "Chyba při odesílání rezervace. Zkuste to prosím znovu.",
       });
-      return;
+    } finally {
+      setSubmitting(false);
     }
-
-    // eslint-disable-next-line no-unused-vars
-    const { data, error } = await supabase.from("reservations").insert([form]).select();
-
-    if (error) {
-      console.error(error);
-      setSnackbar({ open: true, severity: "error", message: "Chyba při ukládání rezervace." });
-      return;
-    }
-
-    // eslint-disable-next-line no-undef
-    const { error: emailError } = await supabase.functions.invoke("send-reservation-email", {
-      body: form,
-    });
-    if (emailError) {
-      console.error(emailError);
-      setSnackbar({ open: true, severity: "error", message: "Chyba při odesílání e-mailu." });
-      return;
-    }
-
-    setSnackbar({
-      open: true,
-      severity: "success",
-      message: "Rezervace uložena.Budeme Vás za nedlouho kontaktovat",
-    });
-    setForm({
-      name: "",
-      phone: "",
-      email: "",
-      service: "",
-      date: new Date(),
-      timeOfDay: "",
-    });
   };
 
   return (
@@ -205,8 +213,8 @@ function Reservation() {
                       </MKInput>
                     </Grid>
                     <Grid item xs={12} textAlign="center" mt={2}>
-                      <MKButton type="submit" variant="gradient" color="info">
-                        Rezervovat
+                      <MKButton type="submit" variant="gradient" color="info" disabled={submitting}>
+                        {submitting ? "Odesílání..." : "Rezervovat"}
                       </MKButton>
                     </Grid>
                   </Grid>
