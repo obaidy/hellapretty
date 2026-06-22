@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.8ab26f38.css",
+    "main.js": "/static/js/main.43937059.js",
+    "static/media/bg-nat.JPG": "/static/media/bg-nat.abc56c7ced58938ec15c.JPG",
+    "static/media/plet.png": "/static/media/plet.71c70ff595dba5e0ebc4.png",
+    "static/media/rty.png": "/static/media/rty.3aa724f663ac4d3af4bb.png",
+    "static/media/bg-nat1.JPG": "/static/media/bg-nat1.7b8229cbb7c630ad2e85.JPG",
+    "static/media/microneedling1.png": "/static/media/microneedling1.6139b6ddbb47c839ab22.png",
+    "static/media/hydra.png": "/static/media/hydra.ce608ba10dcd9bcd9e85.png",
+    "static/media/peeling.png": "/static/media/peeling.acd56683e6ad6d0bc0a0.png",
+    "static/media/ras.jpeg": "/static/media/ras.f607f2a619bbda1f5fc9.jpeg",
+    "index.html": "/index.html",
+    "main.8ab26f38.css.map": "/static/css/main.8ab26f38.css.map",
+    "main.43937059.js.map": "/static/js/main.43937059.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8ab26f38.css",
+    "static/js/main.43937059.js"
+  ]
+}
